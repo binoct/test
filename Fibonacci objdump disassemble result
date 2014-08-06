@@ -20,7 +20,7 @@
 //counter+1
     8492:       3301            adds    r3, #1
 
-//update previous result
+//update previous and result
     8494:       4602            mov     r2, r0
     8496:       4620            mov     r0, r4
 
