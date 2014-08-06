@@ -1,0 +1,33 @@
+//update flag
+    8480:       1e01            subs    r1, r0, #0
+    8482:       b510            push    {r4, lr}
+
+//if(number<=0) return 0
+    8484:       dd0a            ble.n   849c <fib+0x1c>
+
+//initialize r3(loop counter)=2 r0(result)=1 r2(previous)=0
+    8486:       2302            movs    r3, #2
+    8488:       2200            movs    r2, #0
+    848a:       2001            movs    r0, #1
+
+//if(counter>=number) break
+    848c:       428b            cmp     r3, r1
+    848e:       dc04            bgt.n   849a <fib+0x1a>
+
+//get next
+    8490:       1884            adds    r4, r0, r2
+
+//counter+1
+    8492:       3301            adds    r3, #1
+
+//update previous result
+    8494:       4602            mov     r2, r0
+    8496:       4620            mov     r0, r4
+
+//continue loop
+    8498:       e7f8            b.n     848c <fib+0xc>
+    
+
+    849a:       bd10            pop     {r4, pc}
+    849c:       2000            movs    r0, #0
+    849e:       bd10            pop     {r4, pc}
